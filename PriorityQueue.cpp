@@ -10,16 +10,34 @@ public:
 
     void insertion_sort(int num)
     {
+        if (rear == -1)
+        {
+            arr[0] = num;
+            rear += 1;
+            return;
+        }
 
         int temp = this->rear;
 
-        while (this->arr[temp] > num)
+        if (arr[temp] < num)
         {
-            arr[temp + 1] = arr[temp];
-            temp -= 1;
+            rear += 1;
+            arr[rear] = num;
         }
+        else
+        {
+            while (temp > -1 && this->arr[temp] > num)
+            {
+                arr[temp + 1] = arr[temp];
+                temp -= 1;
+            }
 
-        arr[temp] = num;
+            if (temp == -1)
+            {
+                arr[0] = num;
+                rear += 1;
+            }
+        }
     }
 
     PriorityQueue()
@@ -48,11 +66,14 @@ public:
         }
 
         if (front == -1)
+        {
             front += 1;
+        }
 
         this->insertion_sort(num);
         cout << "Data Inserted Successfully" << endl;
-        rear += 1;
+
+        this->display();
     }
 
     void deque()
@@ -86,19 +107,18 @@ int main()
 
     PriorityQueue pq;
 
-    pq.display();
+    for (int i = 4; i > 0; i--)
+    {
+        cout << i;
+        pq.enque(i);
+        pq.display();
+    }
 
-    pq.enque(10);
-
-    pq.display();
-
-    //	for(int i=5; i>0; i--){
-    //		pq.enque(i);
-    //	}
-    //
-    //	for(int i=0; i<5; i++){
-    //		pq.deque();
-    //	}
+    for (int i = 0; i < 5; i++)
+    {
+        pq.deque();
+        pq.display();
+    }
 
     return 0;
 }
