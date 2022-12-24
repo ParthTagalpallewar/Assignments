@@ -53,7 +53,7 @@ public:
 
 		for(int i=0;i<10;i++){
 
-			SeatNode* ns=new SeatNode(i*7+1);
+			SeatNode* ns=new SeatNode(i);
 
 			header[i]=ns;
 			ns->next=ns;
@@ -62,7 +62,7 @@ public:
 
 			for(int j=1;j<7;j++){
 
-				SeatNode* ns1=new SeatNode(i*7+j+1);
+				SeatNode* ns1=new SeatNode(j);
 				ns1->prev=prevseat;
 				prevseat->next=ns1;
 				prevseat=ns1;

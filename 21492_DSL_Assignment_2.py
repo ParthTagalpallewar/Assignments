@@ -70,24 +70,6 @@ class String:
                     j += 1
                     k += 1
 
-    # def occurence(self,str,word):
-    #     count=0
-    #     for i in range(len(str)):
-    #         if str[i] == word[0]:
-    #             j = i + 1
-    #             k = 1
-    #             check = 1
-    #             while (k <len(word)):
-    #                 if str[j] == word[k]:
-    #                     check += 1
-    #                 else:
-    #                     break
-    #                 j += 1
-    #                 k += 1
-    #             if check == len(word):
-    #                 count += 1
-    #     print(count)
-
     def occurrence_of_word(self, str1):
         duplicate = []
         str1 = str1.lower()
